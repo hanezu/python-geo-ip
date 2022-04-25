@@ -29,7 +29,7 @@ class GeoIp(object):
 
     def __init__(self, data_source='http://www.ip2nation.com/ip2nation.zip', data_file=None, verbose=False):
         self.verbose = verbose
-        self.conn = sqlite3.connect(':memory:')
+        self.conn = sqlite3.connect(':memory:', check_same_thread=False)
         self.conn.text_factory = str
         #self.data_file = data_file
         if data_file is None:
